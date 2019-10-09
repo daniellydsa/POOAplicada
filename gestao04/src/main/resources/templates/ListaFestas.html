@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Lista de Convidados</title>
+<title>Lista de Festas</title>
 <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}"
@@ -13,14 +13,13 @@
 <body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
-			<h1 class="panel-title">Lista de convidados</h1>
+			<h1 class="panel-title">Lista de festas</h1>
 		</div>
 		<div class="panel-body">
-                    <form class="form-inline" method ="post" th:object="${convidado}" th:action="@{/convidados}" style="margin:20px 0">
+                    <form class="form-inline" method ="post" th:object="${festaModel}" th:action="@{/festas}" style="margin:20px 0">
                         <div class="form-group">
-                            <input type="hidden" th:field="*{id}"/>
                             <input type="text" class="form-control" th:field="*{nome}" placeholder="Nome"/>
-                            <input type="text" class="form-control" th:field="*{qtde}" placeholder="Acompanhantes"/>
+                            <input type="date" class="form-control" th:field="*{dtFesta}" placeholder="Data"/>
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
@@ -28,16 +27,13 @@
 				<thead>
 					<tr>
 						<th>Nome</th>
-						<th>Acompanhantes</th>
-                                                <th colspan="2">Ações</th>
+						<th>Data</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="c: ${convidados}">
+					<tr th:each="c: ${festas}">
 						<td th:text="${c.nome}">João</td>
-						<td th:text="${c.qtde}">3</td>
-                                                <td> <a th:href="@{/convidados/alterar/} + ${c.id}" class="glyphicon glyphicon-pencil"></a> </td>
-                                                <td> <a th:href="@{/convidados/excluir/} + ${c.id}" class="glyphicon glyphicon-trash"> </a> </td>
+						<td th:text="${c.dtFesta}">3</td>
 					</tr>
 				</tbody>
 			</table>
