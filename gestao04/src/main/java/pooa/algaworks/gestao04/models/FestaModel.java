@@ -37,8 +37,8 @@ public class FestaModel {
         this.nome = nome;
     }
 
-    public Date getDtFesta() {
-        return dtFesta;
+    public String getDtFesta() {
+        return this.dtFesta.toString();
     }
 
     public void setDtFesta(String dtFesta) throws ParseException {
