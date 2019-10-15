@@ -1,25 +1,25 @@
 package pooa.algaworks.gestao04.models;
 
+import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.text.SimpleDateFormat;
+//import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import org.springframework.format.annotation.DateTimeFormat;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
 
 @Entity
-public class FestaModel {
+public class FestaModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     
-    @Temporal(TemporalType.DATE)
-    private Date dtFesta;
+//    @Temporal(TemporalType.DATE)
+    private String dtFesta;
 
     public Long getId() {
         return id;
@@ -38,12 +38,13 @@ public class FestaModel {
     }
 
     public String getDtFesta() {
-        return this.dtFesta.toString();
+        return dtFesta;
     }
 
     public void setDtFesta(String dtFesta) throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        this.dtFesta = formato.parse(dtFesta);
+//        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+//        this.dtFesta = formato.parse(dtFesta);
+          this.dtFesta = dtFesta;
     }
     
 }

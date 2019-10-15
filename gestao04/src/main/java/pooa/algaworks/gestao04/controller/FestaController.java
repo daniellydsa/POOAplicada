@@ -1,6 +1,5 @@
 package pooa.algaworks.gestao04.controller;
 
-import com.sun.net.httpserver.HttpServer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class FestaController {
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("ListaFestas");
         mv.addObject("festas", festaTable.findAll());
-        mv.addObject(new FestaModel());
+        mv.addObject("festa", new FestaModel());
         return mv;
     }
     
@@ -43,7 +42,7 @@ public class FestaController {
     public ModelAndView alterar(@PathVariable Long id, HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mv = new ModelAndView("ListaFestas");
         mv.addObject("festas", festaTable.findAll());
-        mv.addObject("festaModel", festaTable.findById(id));
+        mv.addObject("festa", festaTable.findById(id));
         return mv;
     }
 }
