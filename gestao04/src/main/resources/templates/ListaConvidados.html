@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org" 
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
-      layout:decorator="LayoutPadrao" >
+      layout:decorator="LayoutMenuLateral" >
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Lista de Convidados</title>
-        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" />
-        <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css}" rel="stylesheet" />
+        <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/sidebar/sidebar.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>	
     </head>
     <body>
         <section layout:fragment="conteudo">
