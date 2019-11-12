@@ -1,6 +1,5 @@
 package pooa.algaworks.gestao04.models;
 
-import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +10,14 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Convidado {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private Integer qtde;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "festa")
     private Festa festa;
 
