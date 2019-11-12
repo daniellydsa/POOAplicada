@@ -34,11 +34,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="c: ${festas}">
-                                <td th:text="${c.nome}">João</td>
-                                <td th:text="${c.dtFesta}">3</td>
-                                <td> <a th:href="@{/festas/alterar/} + ${c.id}" class="glyphicon glyphicon-pencil"></a> </td>
-                                <td> <a th:href="@{/festas/excluir/} + ${c.id}" class="glyphicon glyphicon-trash"> </a> </td>
+                            <tr th:each="festa: ${festas}">
+                                <td th:text="${festa.nome}">João</td>
+                                <td th:text="${festa.dtFesta}">3</td>
+                                <td> <a th:href="@{/festas/alterar/} + ${festa.id}" class="glyphicon glyphicon-pencil"></a> </td>
+                                <td> <a th:href="@{/festas/excluir/} + ${festa.id}" class="glyphicon glyphicon-trash"> </a> </td>
                             </tr>
                         </tbody>
                     </table>

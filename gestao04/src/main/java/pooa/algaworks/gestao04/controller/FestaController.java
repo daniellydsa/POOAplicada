@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import pooa.algaworks.gestao04.models.FestaModel;
+import pooa.algaworks.gestao04.models.Festa;
 import pooa.algaworks.gestao04.repository.FestaRepository;
 
 @Controller
@@ -22,12 +22,12 @@ public class FestaController {
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("ListaFestas");
         mv.addObject("festas", festaTable.findAll());
-        mv.addObject("festa", new FestaModel());
+        mv.addObject("festa", new Festa());
         return mv;
     }
     
     @PostMapping("/festas")
-    public String salvar(FestaModel fes) {
+    public String salvar(Festa fes) {
         this.festaTable.save(fes);
         return "redirect:/festas";
     }

@@ -11,17 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pooa.algaworks.gestao04.models.Convidado;
 import pooa.algaworks.gestao04.repository.Convidados;
+import pooa.algaworks.gestao04.repository.FestaRepository;
 
 @Controller
 public class ConvidadosController {
     
     @Autowired
     Convidados convidadosTable;
+    @Autowired
+    FestaRepository festaTable;
     
     @GetMapping("/convidados")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("ListaConvidados.html");
         mv.addObject("convidados",convidadosTable.findAll());
+        mv.addObject("festas", festaTable.findAll());
         mv.addObject(new Convidado());
         return mv;
     }
@@ -41,6 +45,7 @@ public class ConvidadosController {
     @RequestMapping(path ="/convidados/alterar/{id}")
     public ModelAndView alterar(@PathVariable Long id, HttpServletRequest request,  HttpServletResponse response) {
 	ModelAndView mv = new ModelAndView("ListaConvidados");
+        mv.addObject("festas", festaTable.findAll());
 	mv.addObject("convidados",convidadosTable.findAll());
         mv.addObject("convidado", convidadosTable.findById(id));
         return mv;

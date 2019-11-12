@@ -23,6 +23,9 @@
                     <form class="form-inline" method ="post" th:object="${convidado}" th:action="@{/convidados}" style="margin:20px 0">
                         <div class="form-group">
                             <input type="hidden" th:field="*{id}"/>
+                            <select class="form-control" id="festa" th:field="*{festa}">
+                                <option th:each="f : ${festas}" th:value="${f.id}" th:text="${f.nome}"></option>
+                            </select>
                             <input type="text" class="form-control" th:field="*{nome}" placeholder="Nome"/>
                             <input type="text" class="form-control" th:field="*{qtde}" placeholder="Acompanhantes"/>
                             <button type="submit" class="btn btn-primary">Salvar</button>
@@ -33,6 +36,7 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Acompanhantes</th>
+                                <th>Festa</th>
                                 <th colspan="2">Ações</th>
                             </tr>
                         </thead>
@@ -40,6 +44,7 @@
                             <tr th:each="c: ${convidados}">
                                 <td th:text="${c.nome}">João</td>
                                 <td th:text="${c.qtde}">3</td>
+                                <td th:text="${c.festa.nome}"></td>
                                 <td> <a th:href="@{/convidados/alterar/} + ${c.id}" class="glyphicon glyphicon-pencil"></a> </td>
                                 <td> <a th:href="@{/convidados/excluir/} + ${c.id}" class="glyphicon glyphicon-trash"> </a> </td>
                             </tr>
